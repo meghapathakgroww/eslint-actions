@@ -1,0 +1,26 @@
+{
+  "name": "eslint-actions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc", 
+    "lint": "eslint src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meghapathakgroww/eslint-actions.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meghapathakgroww/eslint-actions/issues"
+  },
+  "homepage": "https://github.com/meghapathakgroww/eslint-actions#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.40.1",
+    "@typescript-eslint/parser": "^5.40.1",
+    "eslint": "^8.25.0",
+    "typescript": "^4.8.4"
+  }
+}
