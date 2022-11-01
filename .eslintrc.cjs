@@ -1,9 +1,13 @@
 module.exports = {
-    extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
-    parser: '@typescript-eslint/parser',
-    plugins: ['@typescript-eslint'],
-    root: true,
-    rules:{
-        "no-console": "off"
+    'extends': [
+      'eslint-config-groww'
+    ],
+    'settings': {
+      'import/resolver': {
+        'typescript': {
+          'project': __dirname
+        }
+      }
     }
   };
+  
