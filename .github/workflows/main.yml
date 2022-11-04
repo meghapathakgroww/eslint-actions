@@ -21,7 +21,7 @@ jobs:
       - name: Echo the changed files
         id: changed
         run: |
-          $a = ""
+          a=""
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
             if [[ $file == *.js || $file == *.jsx || $file == *.ts || $file == *.tsx ]]; then
             a = "${a} ${file}"
