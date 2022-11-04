@@ -1,6 +1,6 @@
 module.exports = {
     'extends': [
-      'eslint-config-groww'
+    '@groww-tech'
     ],
     'settings': {
       'import/resolver': {
@@ -10,4 +10,3 @@ module.exports = {
       }
     }
   };
-  
