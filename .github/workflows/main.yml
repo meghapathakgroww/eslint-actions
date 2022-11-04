@@ -24,7 +24,7 @@ jobs:
           a=""
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
             if [[ $file == *.js || $file == *.jsx || $file == *.ts || $file == *.tsx ]]; then
-            a = "${a} ${file}"
+            a="${a} ${file}"
             fi
           done
           echo "changed_file=$a" >> $GITHUB_OUTPUT
