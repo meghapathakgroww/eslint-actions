@@ -1,5 +1,3 @@
-console.log("hi there, test text"); 
+console.log('hi there, test text');
+console.log('nooooo');
 
-
-
-console.log('nooooo')
