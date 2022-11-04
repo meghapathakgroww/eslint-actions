@@ -19,10 +19,15 @@ jobs:
         uses: tj-actions/changed-files@v19
 
       - name: Echo the changed files
+        id: changed
         run: |
+          a = ""
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            echo $file
+            if [[ $file == *.js || $file == *.jsx || $file == *.ts || $file == *.tsx ]]; then
+            a = "${a} ${file}"
+            fi
           done
+          echo "changed_file=$a" >> $GITHUB_OUTPUT
       - name: Use Node.js 
         uses: actions/setup-node@v3
         with:
@@ -30,4 +35,4 @@ jobs:
 
       - run: npm ci 
       - run: npm run build 
-      - run: npm run lint -- ${{ steps.changed-files.outputs.all_changed_files }} --ext .js,.jsx,.ts,.tsx
+      - run: npm run lint -- ${{ steps.changed.outputs.changed_file }} 
