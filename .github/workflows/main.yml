@@ -30,4 +30,4 @@ jobs:
 
       - run: npm ci 
       - run: npm run build 
-      - run: npm run lint -- ${{ steps.changed-files.outputs.all_changed_files }} --ext .js, .jsx, .ts, .tsx
+      - run: npm run lint -- ${{ steps.changed-files.outputs.all_changed_files }} --ext .js,.jsx,.ts,.tsx
