@@ -8,16 +8,14 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
-
       - name: Get changed files
         id: changed-files
-        uses: tj-actions/changed-files@v19
-
+        run: |
+          diffFiles=$(git diff --name-only $GITHUB_BASE_REF..$GITHUB_HEAD_REF)
+          echo "all_changed_files=$diffFiles" >> $GITHUB_OUTPUT
       - name: Echo the changed files
         id: changed
         run: |
@@ -32,7 +30,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16.x'
-
-      - run: npm ci 
+      - run: npm i 
       - run: npm run build 
       - run: npm run lint -- ${{ steps.changed.outputs.changed_file }} 
