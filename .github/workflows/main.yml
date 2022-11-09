@@ -16,6 +16,7 @@ jobs:
       - name: Get changed files
         id: changed-files
         run: |
+          git fetch origin develop
           diffFiles=$(git diff --name-only origin/$GITHUB_BASE_REF origin/$GITHUB_HEAD_REF)
           echo "all_changed_files=$diffFiles" >> $GITHUB_OUTPUT
       - name: Echo the changed files
