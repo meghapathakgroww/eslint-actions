@@ -1,8 +1,6 @@
 name: Node.js CI
 
 on:
-  push:
-    branches: [ develop ]
   pull_request:
     branches: [ develop ]
 
@@ -10,12 +8,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v3 
+        with: 
+          fetch-depth: 2
       - name: Get changed files
         id: changed-files
-        run: |
-          diffFiles=$(git diff --name-only $GITHUB_BASE_REF..$GITHUB_HEAD_REF)
-          echo "all_changed_files=$diffFiles" >> $GITHUB_OUTPUT
+        uses: tj-actions/changed-files@v19
       - name: Echo the changed files
         id: changed
         run: |
@@ -30,6 +28,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16.x'
-      - run: npm i 
-      - run: npm run build 
-      - run: npm run lint -- ${{ steps.changed.outputs.changed_file }} 
+      - run: pnpm i 
+      - run: pnpm run build 
+      - run: pnpm run lint -- ${{ steps.changed.outputs.changed_file }} 
